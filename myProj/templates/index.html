@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>.COM</title>
+</head>
+<body>
+    <h2>Tracking</h2>
+    <form method="post" action="/postuser/">
+        {% csrf_token %}
+        <p>x1:<input name="x1" type="number" />x2:<input name="x2" type="number" /></p>
+        <p>y1:<input name="y1" type="number" />y2:<input name="y2" type="number" /></p>
+        <input type="submit" value="Send" />
+    </form>
+
+
+    <img src="{% static "img/photo.png" %}" style="hidden:True">
+    <img src="{% static "img/trajectory.png" %}" style="hidden:True">
+
+
+    <script>
+    document.getElementById('hider').onclick = function() {
+        if (document.getElementById('text').hidden == false)
+            document.getElementById('text').hidden = true;
+        else
+            document.getElementById('text').hidden = false;
+    }
+
+    setTimeout(function(){location.reload();}, 5000)
+    </script>
+
+
+</body>
+</html>
